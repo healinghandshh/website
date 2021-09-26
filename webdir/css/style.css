@@ -1,0 +1,324 @@
+/* CONVERT ALL TO RELATIVE SIZING | CONVERT COLORS TO HSLA OR RGBA | REMOVE UNDERLINE FROM LINKS & CHANGE CLICK COLOR
+*/
+
+/* #001c48 -- dark blue
+#5ed957 -- green: containers
+#5aba4a -- old green (duller)
+#7ed957 -- logo green: h1 headers
+#0c234b -- blue */
+
+* {
+   margin: 0;
+   padding: 0; 
+   box-sizing: border-box;
+   font-family: 'Italianno', cursive;
+   font-family: 'Catamaran', sans-serif;
+}
+
+h1 {
+    font-family: 'Italianno', cursive;
+}
+
+h2 {
+    font-family: 'Italianno', cursive;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+nav {
+    width: 100%;
+    background-color: #001c48;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+
+/*make seperate logo for nav*/
+#navlogo {
+}
+
+#navitems {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.navitem {
+    display: inline;
+    font-size: 25px;
+    margin: 5px;
+    padding: 2px;
+    border: 1px solid black;
+    background-color: #5ed957;
+    border-radius: 3px;
+    width: 20%;
+    text-align: center;
+}
+
+#main-grid, #about-grid {
+    display: grid;
+    /* 150px rows are for quotes*/
+    grid-template: 6fr repeat(3, 4fr 150px) 4fr / 1fr;
+    background-color: #001c48;
+    align-items: center;
+    position: relative;
+    top: 75px;
+}
+
+#main-grid banner, #about-grid banner {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    /* convert to relative & image size*/
+    width: 100%;
+    height: 800px;
+    background-color: white;
+    grid-row-start: 1;
+    margin-bottom: 80px;
+}
+
+#main-grid banner button {
+    background-color: white;
+    /* change to relative sizing with max size */
+    width: 150px;
+    height: 50px;
+    max-width: 150px;
+    max-height: 50px;
+}
+
+#main-grid banner button a {
+    color: hsla(223, 65%, 25%, 1);
+}
+
+#main-grid banner h1, #about-grid banner h1 {
+    text-align: center;
+    color: #7ed957;
+    font-size: 125px;
+}
+
+.banner-logo {
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: 710px;
+    right: 200px;
+}
+
+.main-grid-containers {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 10px;
+    align-items: center;
+    background-color: #5ed957;
+    border-top: 4px solid #0c234b;
+}
+
+.main-grid-images{
+    width: 30%;
+    text-align: center;
+    height: 100%;
+    border-radius: 10px;
+    border: 4px solid #001c48;
+    background-color: #0c234b;
+    padding: 10px;
+}
+
+.main-grid-info {
+    width: 70%;
+    text-align: center;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    line-height: 2;
+    padding: 25px;
+}
+
+.main-grid-info h2{
+    margin-bottom: 10px;
+    font-size: 55px;
+    color:#001c48;
+}
+
+.main-grid-info p {
+    font-size: 25px;
+}
+
+/*main containters*/
+
+#cont1 {
+    grid-row-start: 2;
+}
+
+#cont2 {
+    grid-row-start: 4;
+}
+
+#cont3 {
+    grid-row-start: 6;
+}
+
+#cont4 {
+    grid-row-start: 8;
+}
+
+footer {
+    background-color: #001c48;
+    height: 200px;
+    position: relative;
+    top: 75px;
+    display: flex;
+    justify-content: space-evenly;
+    border-top: 4px solid #001c48;
+    color: #7ed957;
+    opacity: 1;
+}
+
+/*quotes*/
+
+.quotes {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    background-color: white;
+    color: #001c48;
+    border-top: 4px solid #001c48;
+    height: 100%
+}
+
+
+
+/* about.html */
+
+/* main grid */
+
+#about-grid banner {
+    height: 800px;
+    margin-bottom: 80px;
+}
+
+#about-grid {
+    /* 150px rows are for quotes*/
+    grid-template-rows: 6fr 4fr 4fr 150px 8fr;
+    background-color: #001c48;
+    position: relative;
+    top: 75px;
+}
+
+#about-cont2 {
+    grid-row-start: 3;
+}
+
+#about-quote {
+    grid-row-start: 4;
+    font-size: 100px;
+}
+
+#about-quote p {
+    font-family: 'Italianno', cursive;
+}
+
+#about-cont3 {
+    grid-row-start: 5;
+    background-color: #5ed957;
+}
+
+#about-text3 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    text-align: center;
+    background-color: #001c48;
+} 
+
+/*change this to logo or image or change the whole thing*/
+
+#about-text3 img{
+    grid-column-start: 1;
+    grid-row: 1 / span 3;
+  
+}
+
+#cs-cont {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.cs {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+
+.cs p {
+    padding: 15px;
+}
+
+.cs h2 {
+    width: 100%;
+    margin: 0px;
+}
+
+
+.main-grid-images.about {
+    height: 75%;
+    border-radius: 0px;
+    background-color: #7ed957;
+    margin: 0 auto;
+}
+
+.main-grid-info.about {
+    width: 60%;
+    text-align: left;
+}
+
+.main-grid-info.about h2 {
+    text-align: center;
+    margin: 0px;
+}
+
+.main-grid-containers.about {
+    justify-content: flex-start;
+    align-items: center;
+    text-align: left;
+    background-color: white;
+}
+
+
+/* services */
+
+#service-body {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+    position: relative;
+    top: 75px;
+}
+
+#service-body banner {
+    height: 800px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+}
