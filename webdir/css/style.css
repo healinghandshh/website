@@ -5,7 +5,10 @@
 #5ed957 -- green: containers
 #5aba4a -- old green (duller)
 #7ed957 -- logo green: h1 headers
-#0c234b -- blue */
+#0c234b -- blue 
+
+find neutral color for background and pop color for containers & text;
+*/
 
 * {
    margin: 0;
@@ -24,7 +27,7 @@ h2 {
 }
 
 body {
-    background-color: black;
+    background-color: white;
     display: flex;
     flex-flow: column wrap;
 }
@@ -64,7 +67,44 @@ nav {
     text-align: center;
 }
 
-#main-grid, #about-grid {
+footer {
+    background-color: #001c48;
+    height: 200px;
+    position: relative;
+    top: 75px;
+    display: flex;
+    align-items:center;
+    justify-content: space-around;
+    border-top: 4px solid #001c48;
+    color: #7ed957;
+    opacity: 1;
+}
+
+footer section {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+footer section ul{
+    display: inline-flex;
+    flex-flow: column wrap;
+}
+
+footer section ul li {
+    padding: 10px 0px;
+}
+
+footer section ul li a {
+    color:#5ed957;
+}
+
+#contact li {
+    display: inline;
+}
+
+/* index.html */
+
+#main-grid {
     display: grid;
     /* 150px rows are for quotes*/
     grid-template: 6fr repeat(3, 4fr 150px) 4fr / 1fr;
@@ -74,7 +114,7 @@ nav {
     top: 75px;
 }
 
-#main-grid banner, #about-grid banner {
+#main-grid banner {
     display: flex;
     flex-flow: column wrap;
     align-items: center;
@@ -100,7 +140,7 @@ nav {
     color: hsla(223, 65%, 25%, 1);
 }
 
-#main-grid banner h1, #about-grid banner h1 {
+#main-grid banner h1 {
     text-align: center;
     color: #7ed957;
     font-size: 125px;
@@ -125,7 +165,7 @@ nav {
     border-top: 4px solid #0c234b;
 }
 
-.main-grid-images{
+.main-grid-images {
     width: 30%;
     text-align: center;
     height: 100%;
@@ -155,36 +195,6 @@ nav {
     font-size: 25px;
 }
 
-/*main containters*/
-
-#cont1 {
-    grid-row-start: 2;
-}
-
-#cont2 {
-    grid-row-start: 4;
-}
-
-#cont3 {
-    grid-row-start: 6;
-}
-
-#cont4 {
-    grid-row-start: 8;
-}
-
-footer {
-    background-color: #001c48;
-    height: 200px;
-    position: relative;
-    top: 75px;
-    display: flex;
-    justify-content: space-evenly;
-    border-top: 4px solid #001c48;
-    color: #7ed957;
-    opacity: 1;
-}
-
 /*quotes*/
 
 .quotes {
@@ -198,127 +208,182 @@ footer {
     height: 100%
 }
 
-
+#text2 p a button {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: #001c48;
+}
 
 /* about.html */
 
-/* main grid */
+#about-body {
+    position: relative;
+    top: 75px;
+    display: flex;
+    flex-flow: column wrap;
+    background-color: #001c48;
+}
 
-#about-grid banner {
+#about-body banner {
     height: 800px;
-    margin-bottom: 80px;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+#about-body banner h1 {
+    font-size: 125px;
+    color: #7ed957;
+}
+
+/* switch grid and container colors after adding images
+switch images to material icons or use canva to make circle icons for each: experiment with removing background as well
+*/
+
+#about-grid {
+    display: grid;
+    grid-template: repeat(20, 1fr) / repeat(20, 1fr);
+    background-color: white;
+    padding: 50px 0px;
+    align-items: center;
+    border-top: 3px solid black;
+}
+
+.about.container {
+    width: 100%;
+    height: 100%;
+    background-color: #7ed957;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    border: 3px solid #001c48;
+    text-align: left;
+}
+
+.about.container h2{
+    font-size: 70px;
+    color: #001c48;
+    text-align: center;
+}
+.about.container p {
+    padding: 0px 15px;
+}
+
+
+#foundations {
+    grid-area: 1 / 2 / span 3 / span 12;
+}
+
+#about-img1 {
+    grid-area: 1 / 15 / span 3 / span 5;
+}
+
+#about-img2 {
+    grid-area: 5 / 15 / span 3 / span 5;
+}
+
+#mission {
+    grid-area: 5 / 2 / span 3 / span 12;
+}
+
+#value-title {
+    grid-area: 8 / 1 / span 2 / span 20;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 125px;
+    border-radius: 0;
+    height: 70%;
+    color: #5ed957;
+    background-color: #001c48;
+}
+
+#about-img3 {
+    grid-area: 10 / 15 / span 3 / span 5;
+}
+
+#community {
+    grid-area: 10 / 2 / span 3 / span 12;
+}
+
+#compassion {
+    grid-area: 14 / 2 / span 3 / span 18;
+}
+
+#communication {
+    grid-area: 18 / 2 / span 3 / span 12;
+}
+
+#about-img4 {
+    grid-area: 18 / 15 / span 3 / span 5;
 }
 
 #about-grid {
-    /* 150px rows are for quotes*/
-    grid-template-rows: 6fr 4fr 4fr 150px 8fr;
-    background-color: #001c48;
+    font-size: 30px;
+    text-align: center;
+}
+
+/* services.html */
+
+#services {
+    height: 1100px;
+    padding: 0 10%;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    align-items: center;
+    flex-flow: column wrap;
     position: relative;
     top: 75px;
+    background-color: white;
 }
 
-#about-cont2 {
-    grid-row-start: 3;
-}
-
-#about-quote {
-    grid-row-start: 4;
-    font-size: 100px;
-}
-
-#about-quote p {
-    font-family: 'Italianno', cursive;
-}
-
-#about-cont3 {
-    grid-row-start: 5;
-    background-color: #5ed957;
-}
-
-#about-text3 {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    padding: 0px;
-    text-align: center;
-    background-color: #001c48;
-} 
-
-/*change this to logo or image or change the whole thing*/
-
-#about-text3 img{
-    grid-column-start: 1;
-    grid-row: 1 / span 3;
-  
-}
-
-#cs-cont {
+#service-header {
+    position: relative;
+    top: 75px;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    align-items: center;
-}
-
-.cs {
-    width: 100%;
+    align-items: stretch;
+    text-align: center;
     background-color: white;
-    display: flex;
-    flex-flow: column wrap;
-}
-
-
-.cs p {
-    padding: 15px;
-}
-
-.cs h2 {
-    width: 100%;
-    margin: 0px;
-}
-
-
-.main-grid-images.about {
-    height: 75%;
-    border-radius: 0px;
-    background-color: #7ed957;
+    width: 75%;
     margin: 0 auto;
 }
 
-.main-grid-info.about {
-    width: 60%;
-    text-align: left;
+#service-header h1 {
+    font-size: 125px;
+    color: #7ed957;
 }
 
-.main-grid-info.about h2 {
+#service-header p {
+    font-size: 30px;
+}
+
+/* when hovering have a brand color overlay */
+
+.services {
+    width: 450px;
+    height: 300px;
+    background-color: #5ed957;
+    border: 1px solid black;
+    margin: 0 auto;
     text-align: center;
-    margin: 0px;
 }
 
-.main-grid-containers.about {
-    justify-content: flex-start;
-    align-items: center;
-    text-align: left;
-    background-color: white;
-}
-
-
-/* services */
-
-#service-body {
-    display: flex;
-    flex-flow: column wrap;
-    width: 100%;
-    position: relative;
-    top: 75px;
-}
-
-#service-body banner {
-    height: 800px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background-color: white;
+.services h3 {
+    background-color: hsla(0, 0%, 0%, 0.5);
+    color: white;
 }

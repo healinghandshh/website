@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <!-- insert fonts i'd like to use-->
         <title>
-            Home | Healing Hands Healing Hearts L.L.C.
+            About | Healing Hands Healing Hearts L.L.C.
         </title>
         <link href='../css/style.css' rel='stylesheet'>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,65 +16,105 @@
                 <li class='navitem' ><a href='../index.html'>Home</a></li>
                 <!-- maybe make services dropdown menu-->
                 <li class='navitem'><a href='../html/services.html'>Services</a></li>
-                <li class='navitem'><a href='../html/newsletter.html'>Blog</a></li>
                 <li class='navitem' id='activepage'>About Us</a></li>
+                <li class='navitem'><a href='../html/newsletter.html'>Blog</a></li>
                 <li class='navitem'><a href='#footer'>Contact Us</a></li>
             </ul>
         </nav>
-        <main id='about-grid'>
+        <main id='about-body'>
             <banner>
-                <!-- maybe insert logo here instead -->
-                <h1>Learn more about us</h1><br>
-                <!-- change this -->
+                <h1>Learn more about us</h1>
             </banner>
-            <section class='main-grid-containers about' id='about-cont1'>
-                
-                <section class='main-grid-info about' id='about-text1'>
-                    <h2>Solid foundations</h2>
-                    <p>Before founding Healing Hands Healing Hearts our CEO, Mahamadi Sawadogo, gained over a decade, fifteen years to be exact, of healthcare experience and in coordination with doctors, he has helped to heal thousands of patients. Mahamadi carries with him a deep compassion for others and he is passionate about helping others & helping the community. He will guarantee only the utmost treatment of all patients. He has made it a mission in his life to help as many people as possible.
+            <!-- add section linking to resources and saying how we care about your well being-->
+            <!--maybe to make responsive change this to flexbox and use flex-end flex-start and center to create the same effect i created-->
+            <section id='about-grid'>
+                <!-- add image on right -->
+                <section class='about container' id='foundations'>
+                        <h2>Solid Foundations</h2>
+                        <p>
+                            Before founding Healing Hands Healing Hearts our CEO, Mahamadi Sawadogo, gained over a decade, fifteen years to be exact, of healthcare experience and in coordination with doctors, he has helped to heal thousands of patients. Mahamadi carries with him a deep compassion for others and he is passionate about helping others & helping the community. He will guarantee only the utmost treatment of all patients. He has made it a mission in his life to help as many people as possible.
+                        </p>
+                </section>
+                <figure class='about container image right' id='about-img1'>
+                    <img src='../images/logo-whitebk.png' />
+                </figure>
+
+                <figure class='about container image left' id='about-img2'>
+                    <img src='../images/logo-whitebk.png' />
+                </figure>
+                <section class='about container' id='mission'>
+                    <h2>Our Mission</h2>
+                    <p>
+                        With compassionate care tailored to each individual patient, we strive to create an unforgettable experience for you. Through a selective hiring process that allows only clinicians that align with our values to care for our patients, we guarantee a pleasant, wholesome experience. Our mission is to create a reliable community that will act as an auxiliary support system to all members and to assist in healing as many people as possible.
+
                     </p>
                 </section>
-                <section class='main-grid-images about' id='about-img1'>
-                    <p>imagine a large image</p>
+                <!-- after this add the values descending the opposite way-->
+                <section class='about container' id='value-title'>
+                    <h1>Our Values</h1>
                 </section>
-            </section>
-            <section class='main-grid-containers about' id='about-cont2'>
-                <section class='main-grid-info about' id='about-text2'>
-                    <h2>Our mission</h2>
-                    <p>With compassionate care tailored to each individual patient, we strive to create an unforgettable experience for you. Through a selective hiring process that allows only clinicians that align with our values to care for our patients, we guarantee a pleasant, wholesome experience. Our mission is to create a reliable community that will act as an auxiliary support system to all members and to assist in healing as many people as possible.
+                <figure class='about container image left' id='about-img3'>
+                    <img src='../images/logo-whitebk.png' />
+                </figure>
+                <section class='about container' id='community'>
+                    <h2>Community</h2>
+                    <p>
+                        Healing Hands Healing Hearts has a vision of success wherein we put the community first. We value our community and are dedicated to giving back to the community in more ways than just home health care; by organizing and participating in community events we are creating a strong community which may prove to be a solid support system for all members.
                     </p>
                 </section>
-                <section class='main-grid-images about' id='about-img2'>
-                    <p>imagine a large image</p>
+                <section class='about container middle' id='compassion'>
+                    <h2>Compassion</h2>
+                    <p>
+                        We deeply value compassion and understand that a little empathy and compassion can go a long way, so instead of just giving you a little we promise to give you tons of both and go to great lengths to improve your quality of life. Every single one of our patients are dear to us and we will treat them with the same love, respect, and quality of care as we would want our family to be treated with.
+                    </p>
                 </section>
-            </section>
-            <section class='quotes about' id='about-quote'>
-                <p>Our Values</p>
-            </section>
-            <section class='main-grid-containers about ' id='about-cont3'>
-                <section class='main-grid-info about' id='about-text3'>
-                    <img src='../images/logo-whitebk.png'>
-                    <section id='c-cont'></section>
-                        <section class='cs about' id='c1'>
-                            <h2>Community</h2>
-                            <p>Healing Hands Healing Hearts has a vision of success wherein we put the community first. We value our community and are dedicated to giving back to the community in more ways than just home health care; by organizing and participating in community events we are creating a strong community which may prove to be a solid support system for all members.
-                            </p>
-                        </section>
-                        <section class='cs about' id='c2'>
-                            <h2>Compassion</h2>
-                            <p>We deeply value compassion and understand that a little empathy and compassion can go a long way, so instead of just giving you a little we promise to give you tons of both and go to great lengths to improve your quality of life. 
-                            </p>
-                        </section>
-                        <section class='cs about' id='c3'>
-                            <h2>Communication</h2>
-                            <p>We pride ourselves on our ability to communicate well. We will never leave you in the dark about anything, as long as you are with Healing Hands Healings Hearts, you can be sure that you will receive all relevant information as quickly as possible. </p>
-                        </section>
-                    </section>
+                <section class='about container' id='communication'>
+                    <h2>Communication</h2>
+                    <p>
+                        We pride ourselves on our ability to communicate well. We will never leave you in the dark about anything, as long as you are with Healing Hands Healings Hearts, you can be sure that you will receive all relevant information as quickly as possible. 
+                    </p>
                 </section>
+                <figure class='about container image right' id='about-img4'>
+                    <img src='../images/logo-whitebk.png' />
+                </figure>
             </section>
         </main>
         <footer>
-            <h2> make this a grid with nav stuff and external resources</h2>
+            <section>
+                <ul id='contact'>
+                    <li>healinghandshealinghearts@gmail.com</li>
+                    <li>111-222-3333</li>
+                    <li>1000 Address ST, City, ST 12345</li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li><a href='../index.html'>Home</a></li>
+                    <li><a href='about.html'>About Us</a></li>
+                    <li><a href='Resources'>Resources</a></li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li><a href='services/homecare.html'>In-home Living Assistance</a></li>
+                    <li><a href='services/PDC.html'>Private Duty Companionship</a></li>
+                    <li><a href='services/WC.html'>Wound Care</a></li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li><a href='services/OT.html'>Occupational Therapy</a></li>
+                    <li><a href='services/PT.html'>Physical Therapy</a></li>
+                    <li><a href='services/ST.html'>Speech Therapy</a></li>
+                </ul>
+            </section>
+            <section>
+                <ul>
+                    <li><a href='services/TC.html'>Tracheostomy Care</a></li>
+                    <li><a href='services/CC.html'>Catheter Care</a></li>
+                    <li><a href='services/VC.html'>Ventilator Care</a></li>
+                </ul>
+            </section>
         </footer>
     </body>
 </html>
