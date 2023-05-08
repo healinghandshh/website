@@ -1,0 +1,27 @@
+Find color palette
+
+1) bckg color
+2) heading color
+3) text color
+4) container color
+
+In google docs, write words for each section then convert to html DONE
+
+1) About
+2) Services
+3) Home
+4) Newsletter
+5) Contact (may just become footer)
+
+Create grid layout then style pages; when styling act as if they are one html page- only use one css file for all so styling is uniform.
+When styling initially: make different colored blocks with title/desc. of each then add content in order to better organize. DONE
+
+1) Home
+2) About
+3) Services
+4) Newsletter
+5) Contact
+
+Add placeholder images
+
+optimize site for mobile

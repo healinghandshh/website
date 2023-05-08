@@ -281,7 +281,7 @@ main {
 }
 
 #img1 {
-    background-image: url('../images/homecare-1.png')
+    background-image: url('../images/homecare-1.png');
 }
 
 #img2 {
@@ -305,7 +305,7 @@ main {
     justify-content: center;
     align-items: center;
     line-height: 2;
-    padding: 25px;
+    padding: 10px;
 }
 
 .main-grid-info h2{
@@ -818,7 +818,6 @@ switch images to material icons or use canva to make circle icons for each: expe
         /*position: absolute;
         display: none;*/
         width: 85%;
-        margin: 50px 0px;
     }
 
     #main-grid banner, banner {
@@ -997,3 +996,60 @@ switch images to material icons or use canva to make circle icons for each: expe
         font-size: 6rem;
     }
 }
+
+#text3 {
+    position: relative;
+}
+
+#testimonials {
+    width: 100%;
+    padding: 2.5% 5%;
+    padding-top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.slide {
+    display: none;
+}
+
+.slide.show {
+    display: block;
+}
+
+  .controls {
+      position: absolute;
+      border-radius: 50px;
+      background-color: transparent;
+      border: 5px solid black;
+      height: 80%;
+      top: 50%;
+      bottom: 50%;
+      color: transparent;
+  }
+
+  #next {
+      right: 0;
+      width: 0; 
+      height: 0;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-left: 20px solid black;
+      border-right: transparent;
+  }
+
+  #previous {
+      left: 0;
+      width: 0; 
+      height: 0;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      border-right: 20px solid black;
+      border-left: transparent;
+  }
+
+  .slide span{
+    font-style: italic;
+  }

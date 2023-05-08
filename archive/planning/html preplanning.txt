@@ -1,0 +1,62 @@
+for nav, image with 25px margin, 100px image, 1000 px container, 825px navbar 25px right margin
+
+DO NOT FORGET SEO
+
+find hsla blueish color scheme
+
+4 colors: main color, secondary color, text color, alternate main color
+
+
+thumbs up logo to left of testimonial
+
+layout: image on left then text, flip for every new row like homecareassistance.com
+
+community communication compassion have each C be large and have an indent that increases before each c (0 for first one)
+
+MAYBE: "join the family" page to recruit new employees.
+
+
+Green Pallette
+
+NAV:
+logo - left (medium size)
+nav items: Home, About, Services, Blog, Contact
+
+MAIN - HOME:
+
+Banner with company name & call to action, cursive
+What is homecare
+Why I should choose homecare
+Why I should choose healing hands healing hearts (put about section here and link to it)
+How do I know if I need homecare? (maybe put quiz)
+Homecare statistics
+Where we serve (maybe check to see if my location is available feature)
+Buzz sentences
+Testimonials
+
+MAIN - ABOUT:
+Our mission
+The three Cs
+What we believe in/envision
+
+
+MAIN - SERVICES:
+services & small desc of how they benefit you or who it's for then link to page
+
+make a page for each service with general info about the service
+
+
+MAIN - INFORMATION CENTER & Homecare FAQ:
+external resources for learning about healthcare and elderly health
+check plan.txt ideas
+
+
+MAIN - CONTACT US:
+contact info and calls to action
+
+
+FOOTER:
+Contact Info
+Location
+Expanded Navbar & social media info
+Accesibility options

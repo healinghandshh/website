@@ -1,0 +1,57 @@
+community,
+care,
+compassion DONE EXCEPT FOR TRANSITION (have this in big words somewhere with nice fade-slide transition in)
+
+create MEMORABLE healing hands logo, not basic one; have two stick people with hand on a heart between them, encapsulated within a heavenly glow, and words surrounding them in a circle saying "healing hands, healing hearts" (maybe green stick people w black words or vv) DONE!!!!!
+
+
+--maybe: 4 Hs in logo bc of name
+
+Create HSL color scheme after writing the HTML
+
+different css files to allow for readability/color blindness & different colors e.g. dark mode, light mode, red, blue (save for last)
+
+-----
+
+--- You build a website in layers, as if you are making a multi-layered cake.
+
+1st Layer - First you build the base, the container div, with it's min-height and width css.
+
+2nd Layer - Then you build the next layer, the large sections of the page (divs and styling for structure), such as rows or sections looking like columns.
+
+3rd Layer and beyond - Then you keep adding within the second layer of sections.
+
+-----
+
+TARGET AUDIENCE: elderly
+
+-this is deeply rooted in community
+-
+
+essential content - needed on website:
+
+-company info (name, location, mission statement)
+-services offered
+
+
+vids and articles: auxiliary content.
+
+-links for proven ways to increase your immune system for elderly
+-links for proven ways to prevent COVID-19
+-community page for resources for elderly (some health related some not)... think diet, fun exercise routines anybody can do, ways to increase flexibility and energy
+-look at prospectva website for ideas, especially specialty programs
+-make form to get contacted
+-meditation and yoga
+-why you should want to work for us "why become a healing hand?"
+-
+
+include average daily hospital cost vs home care cost and say we offer extremely competitive rates
+
+LAYOUT:
+
+navbar:
+Home - general info
+About - mission statement, who we are what we do, etc
+Services- services or programs we provide and what each service can do for you
+Health Blog - auxiliary content
+Contact Us - contact info & social media groups (maybe seperate community tab for social media + blog)
