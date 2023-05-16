@@ -1,0 +1,302 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout section="contact">
+  <div class="form-container">
+    <div class="contact-info">
+      <h1>Contact Us</h1>
+      <div class="cordonees">
+        <div class="info">
+          <p>(202) 290-5123</p>
+          <img src="icons/phone.svg" />
+        </div>
+        <div class="info">
+          <p>contact@healinghandshh.com</p>
+          <img src="icons/email.svg" />
+        </div>
+        <div class="info">
+          <p>4132 Lancaster Cir waldorf MD 20603</p>
+          <img src="icons/pin.svg" />
+        </div>
+      </div>
+    </div>
+    <form id="contact-form">
+      <div class="name-input">
+        <div class="input-container">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            id="firstName"
+            placeholder="Tyler"
+          />
+        </div>
+        <div class="input-container">
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            id="lastName"
+            placeholder="Perry"
+          />
+        </div>
+      </div>
+      <div class="input-container">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Emailus@email.com"
+        />
+      </div>
+      <div class="input-container">
+        <label for="subject">Subject</label>
+        <input
+          type="text"
+          name="subject"
+          id="subject"
+          placeholder="Requesting Caregiver Information"
+        />
+      </div>
+      <div class="input-container">
+        <label for="message">Message</label>
+        <textarea
+          name="message"
+          id="message"
+          placeholder="Hey! I'd love to know more about your caregivers. Your services seem very high quality, and we'd like to know the team better."
+        ></textarea>
+      </div>
+
+      <input id="submit" type="submit" />
+    </form>
+  </div>
+</Layout>
+<script>
+  const handleSubmit = async (event) => {
+  event.preventDefault();
+  const form = document.getElementById("contact-form");
+  const { elements } = form;
+  const data = {};
+  for (let i = 0; i < elements.length; i++) {
+    data[elements[i].name] = elements[i].value;
+  }
+
+  const { firstName, lastName, email, message, subject } = data;
+
+  const sendMail = await fetch(
+    `http://${window.location.host}/api/sendMail.json?firstName=${firstName}&lastName=${lastName}&email=${email}&subject=${subject}&message=${message}`,
+    {
+      method: "post",
+    }
+  );
+  const response = await sendMail.json();
+
+  if (response === "success") {
+    alert("Your message was sent!");
+  } else {
+    alert("Something went wrong. Please try again.");
+  }
+};
+const form = document.getElementById("contact-form");
+form.addEventListener("submit", handleSubmit);
+</script>
+
+<style>
+  :root {
+    --form-height: 425px;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 500px;
+
+    padding: 0px 10%;
+
+    background-color: white;
+  }
+
+  .contact-info {
+    /**Have image in background w green overlay */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    width: 35%;
+    height: var(--form-height);
+
+    padding: 0px 50px;
+
+    background-color: var(--secondary-color);
+    background: linear-gradient(
+        0deg,
+        hsla(117, 63%, 60%, 0.95),
+        hsla(117, 63%, 60%, 0.95)
+      ),
+      url("/images/network.jpg");
+    background-size: 100%;
+    background-position: 60% 60%;
+  }
+
+  .contact-info h1 {
+    font-size: 6rem;
+    color: var(--main-color);
+
+    text-decoration: underline solid 3px;
+  }
+
+  .cordonees {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 15px;
+
+    width: 100%;
+  }
+
+  .info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    border-bottom: 3px solid black;
+    border-radius: 3.5px;
+  }
+
+  .info img {
+    height: 25px;
+  }
+
+  .info p {
+    font-size: 1.35rem;
+    font-weight: 700;
+  }
+
+  input,
+  textarea {
+    padding: 5px 5px;
+  }
+
+  textarea {
+    resize: none;
+    height: 64px;
+  }
+
+  #contact-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 15px;
+
+    width: 50%;
+    height: var(--form-height);
+
+    padding: 20px;
+
+    background-color: var(--main-color);
+  }
+
+  #submit {
+    margin-top: 10px;
+    height: 45px;
+
+    background-color: var(--secondary-color);
+
+    font-size: 1rem;
+    font-weight: bold;
+
+    cursor: pointer;
+  }
+
+  #submit:hover {
+    background-color: hsl(117, 63%, 50%);
+    box-shadow: 3px 3px black;
+  }
+
+  .name-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    gap: 2.5%;
+  }
+
+  .name-input .input-container {
+    width: 50%;
+  }
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  label {
+    color: #fff;
+  }
+
+  @media only screen and (max-width: 1440px) {
+    .contact-info {
+      width: 403px;
+    }
+
+    #contact-form {
+      width: 575px;
+    }
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .contact-info {
+      padding: 0px 25px;
+    }
+  }
+
+  @media only screen and (max-width: 1050px) {
+    .form-container {
+      flex-direction: column;
+      height: fit-content;
+      padding: 50px;
+    }
+
+    .contact-info {
+      width: 100%;
+      padding: 25px;
+      height: 350px;
+    }
+
+    #contact-form {
+      width: 100%;
+      height: 450px;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    .form-container {
+      padding: 20px;
+    }
+
+    .contact-info h1 {
+      font-size: 4rem;
+    }
+
+    .info p {
+      font-size: 1rem;
+    }
+
+    .info img {
+      height: 20px;
+    }
+  }
+</style>

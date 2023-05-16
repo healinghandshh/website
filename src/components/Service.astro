@@ -1,0 +1,15 @@
+---
+const {name, description, imgId} = Astro.props;
+---
+<section id='services-cont'>
+    <section id='services-text'>
+    <h1>
+        {name}
+    </h1>
+    <p>
+        {description}
+    </p>
+    </section>
+    <figure class='services-image' id={imgId}>
+    </figure>
+</section>

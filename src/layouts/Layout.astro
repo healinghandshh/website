@@ -1,0 +1,108 @@
+---
+import 'dotenv/config'
+import express from 'express'
+import "../styles/all.css";
+export interface Props {
+  section: "about" | "service" | "resources" | "contact" | "home";
+}
+
+const { section } = Astro.props;
+const title = (() => {
+  if (section === "home") return "Home";
+  if (section === "about") return "About us";
+  if (section === "service") return "Services";
+  if (section === "resources") return "Resources";
+  if (section === "contact") return "Contact us";
+})();
+
+---
+
+<html>
+  <head>
+    <!-- copied from about page -->
+    <title>
+      {title} | Healing Hands Healing Hearts L.L.C.
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../css/style.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Catamaran:wght@300&family=Italianno&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      const toggleButton = document.getElementById("burger");
+      const navbarLinks = document.getElementsByClassName("navbar-links")[0];
+      toggleButton.addEventListener("click", () => {
+        navbarLinks.classList.toggle("active");
+      });
+    </script>
+  </head>
+
+  <body id=`${section}-body`>
+    <nav class="navbar">
+      <img class="brand-logo" src="../images/nav-whitetxt.png" />
+
+      <a id="burger" href="#" class="toggle-button">
+        <img src="../images/outline_menu_white_24dp.png" />
+      </a>
+      <section class="navbar-links">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="resources.html">Resources</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </section>
+    </nav>
+    <main
+      id={section === "home"
+        ? "main-grid"
+        : section === "service"
+        ? "services"
+        : `${section}-main`}
+    >
+      <slot />
+    </main>
+  </body>
+
+  <footer>
+    <section>
+      <ul id="contact">
+        <li>healinghandshealinghearts@gmail.com</li>
+        <li>111-222-3333</li>
+        <li>1000 Address ST, City, ST 12345</li>
+      </ul>
+    </section>
+    <section>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/resources.html">Resources</a></li>
+      </ul>
+    </section>
+    <section>
+      <ul>
+        <li><a href="/services/homecare.html">In-home Living Assistance</a></li>
+        <li><a href="/services/PDC.html">Private Duty Companionship</a></li>
+        <li><a href="/services/WC.html">Wound Care</a></li>
+      </ul>
+    </section>
+    <section>
+      <ul>
+        <li><a href="/services/OT.html">Occupational Therapy</a></li>
+        <li><a href="/services/PT.html">Physical Therapy</a></li>
+        <li><a href="/services/ST.html">Speech Therapy</a></li>
+      </ul>
+    </section>
+    <section>
+      <ul>
+        <li><a href="/services/TC.html">Tracheostomy Care</a></li>
+        <li><a href="/services/CC.html">Catheter Care</a></li>
+        <li><a href="/services/VC.html">Ventilator Care</a></li>
+      </ul>
+    </section>
+  </footer>
+</html>
