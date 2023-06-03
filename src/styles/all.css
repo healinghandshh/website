@@ -29,11 +29,11 @@ html {
 }
 
 h1 {
-  font-family: "Italianno", cursive;
+  font-family: "Italianno", serif;
 }
 
 h2 {
-  font-family: "Italianno", cursive;
+  font-family: "Italianno", serif;
 }
 
 banner {
@@ -67,7 +67,7 @@ body {
   position: sticky;
   top: 0;
   height: 125px;
-  z-index: 1;
+  z-index: 5;
   width: 100%;
 }
 
@@ -1048,4 +1048,8 @@ switch images to material icons or use canva to make circle icons for each: expe
 
 #contact-main {
   height: fit-content;
+}
+
+#application-main {
+  background: var(--main-color);
 }

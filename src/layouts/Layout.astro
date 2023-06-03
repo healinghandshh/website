@@ -1,9 +1,15 @@
 ---
-import 'dotenv/config'
-import express from 'express'
+import "dotenv/config";
+import express from "express";
 import "../styles/all.css";
 export interface Props {
-  section: "about" | "service" | "resources" | "contact" | "home";
+  section:
+    | "about"
+    | "service"
+    | "resources"
+    | "contact"
+    | "home"
+    | "application";
 }
 
 const { section } = Astro.props;
@@ -13,8 +19,8 @@ const title = (() => {
   if (section === "service") return "Services";
   if (section === "resources") return "Resources";
   if (section === "contact") return "Contact us";
+  if (section === "application") return "Work with us";
 })();
-
 ---
 
 <html>

@@ -1,0 +1,219 @@
+---
+export interface Props {
+  label: string | null;
+  type: astroHTML.JSX.HTMLInputTypeAttribute | "textarea";
+  name: string;
+  placeholder?: string;
+  pattern?: string | RegExp;
+  autocomplete?: string;
+  enterKeyHint?:
+    | "search"
+    | "enter"
+    | "done"
+    | "go"
+    | "next"
+    | "previous"
+    | "send";
+  required?: boolean;
+  [prop: string]: any;
+  size?: "max" | "l" | "m" | "s" | "xs";
+  className?: string;
+}
+
+const {
+  label,
+  type,
+  name,
+  placeholder,
+  pattern,
+  autocomplete,
+  enterKeyHint,
+  required,
+  size,
+  className,
+  ...props
+} = Astro.props;
+
+const getSize = () => {
+  if (size) return size;
+  else {
+    if (type === "textarea") return "max";
+    if (label) {
+      const _label = label.toLowerCase();
+
+      if (_label.includes("address")) return "l";
+
+      if (
+        _label.includes("city") ||
+        _label.includes("day") ||
+        _label.includes("maiden") ||
+        _label.includes("degree") ||
+        _label.includes("ssn")
+      )
+        return "s";
+
+      if (
+        _label.includes("apt") ||
+        _label.includes("gender") ||
+        _label.includes("zipcode")
+      )
+        return "xs";
+    }
+
+    switch (type) {
+      case "tel":
+        return "s";
+      case "date":
+        return "s";
+      case "number":
+        return "s";
+      default:
+        return "m";
+    }
+  }
+};
+---
+
+<div class={"input-container" + " " + getSize() + " " + type + " " + className}>
+  {label !== null && <label for={name}>{label}</label>}
+  {
+    type !== "textarea" ? (
+      <input
+        type={type}
+        name={name}
+        id={name}
+        placeholder={placeholder}
+        autocomplete={autocomplete}
+        enterkeyhint={enterKeyHint}
+        pattern={pattern}
+        required={required || true}
+        {...props}
+      />
+    ) : (
+      <textarea
+        name={name}
+        id={name}
+        placeholder={placeholder}
+        autocomplete={autocomplete}
+        enterkeyhint={enterKeyHint}
+        pattern={pattern}
+        required={required || true}
+        {...props}
+      />
+    )
+  }
+</div>
+
+<style>
+  .input-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    width: 100%;
+
+    margin-bottom: -2px;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+    white-space: nowrap;
+
+    position: relative;
+    z-index: 2;
+
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .textarea label {
+    margin-bottom: 2px;
+  }
+
+  input {
+    border: none;
+    border-bottom: 1px solid black;
+
+    width: 100%;
+    height: 25px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  :root {
+    --l-width: 400px;
+    --m-width: 250px;
+    --s-width: 125px;
+    --xs-width: 50px;
+  }
+
+  .max {
+    width: 100%;
+  }
+
+  .l {
+    width: var(--l-width);
+
+    flex-grow: 2;
+  }
+
+  .m {
+    width: var(--m-width);
+
+    flex-grow: 1.5;
+  }
+
+  .s {
+    width: var(--s-width);
+
+    flex-grow: 1;
+    flex-shrink: 0;
+  }
+
+  .xs {
+    width: var(--xs-width);
+
+    flex-shrink: 0;
+    flex-grow: 0;
+  }
+
+  .textarea {
+    width: 100%;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .l {
+      width: calc(var(--l-width) - 10%);
+      flex-shrink: 2;
+    }
+    .m {
+      width: calc(var(--m-width) - 10%);
+      flex-shrink: 1.5;
+    }
+    .s {
+      width: calc(var(--s-width) - 10%);
+      flex-shrink: 1;
+    }
+    .xs {
+      width: 50px;
+      min-width: fit-content;
+      flex-shrink: 0;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    input,
+    .l,
+    .m,
+    .s,
+    .xs {
+      max-width: 100%;
+      width: 100%;
+      min-width: 100%;
+
+      flex-shrink: 1;
+    }
+  }
+</style>

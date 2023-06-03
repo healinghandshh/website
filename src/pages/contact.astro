@@ -75,32 +75,34 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 <script>
   const handleSubmit = async (event) => {
-  event.preventDefault();
-  const form = document.getElementById("contact-form");
-  const { elements } = form;
-  const data = {};
-  for (let i = 0; i < elements.length; i++) {
-    data[elements[i].name] = elements[i].value;
-  }
-
-  const { firstName, lastName, email, message, subject } = data;
-
-  const sendMail = await fetch(
-    `http://${window.location.host}/api/sendMail.json?firstName=${firstName}&lastName=${lastName}&email=${email}&subject=${subject}&message=${message}`,
-    {
-      method: "post",
+    event.preventDefault();
+    const form = document.getElementById("contact-form") as HTMLFormElement;
+    const { elements } = form;
+    const data: { [name: string]: string } = {};
+    for (let i = 0; i < elements.length; i++) {
+      data[(elements[i] as HTMLFormElement).name] = (
+        elements[i] as HTMLFormElement
+      ).value;
     }
-  );
-  const response = await sendMail.json();
 
-  if (response === "success") {
-    alert("Your message was sent!");
-  } else {
-    alert("Something went wrong. Please try again.");
-  }
-};
-const form = document.getElementById("contact-form");
-form.addEventListener("submit", handleSubmit);
+    const { firstName, lastName, email, message, subject } = data;
+
+    const sendMail = await fetch(
+      `http://${window.location.host}/api/sendMail.json?firstName=${firstName}&lastName=${lastName}&email=${email}&subject=${subject}&message=${message}`,
+      {
+        method: "post",
+      }
+    );
+    const response = await sendMail.json();
+
+    if (response === "success") {
+      alert("Your message was sent!");
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  };
+  const form = document.getElementById("contact-form");
+  form.addEventListener("submit", handleSubmit);
 </script>
 
 <style>

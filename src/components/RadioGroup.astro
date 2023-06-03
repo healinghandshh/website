@@ -1,0 +1,101 @@
+---
+import Radio from "./Radio.astro";
+export interface Props {
+  radios: Array<{
+    text: string;
+    id: string;
+    value?: string;
+    checkable?: boolean;
+  }>;
+  name: string;
+  label: string | null;
+  class?: string;
+  checkable?: boolean;
+  vertical?: boolean;
+  radioAlign?: "left";
+}
+
+const { radios, name, label, checkable, vertical, radioAlign } = Astro.props;
+
+const classList =
+  Astro.props.class +
+  " " +
+  "radio-group" +
+  " " +
+  `${vertical ? "vertical" : ""}` +
+  " " +
+  (radioAlign || "");
+---
+
+{
+  classList.includes("top-level") ? (
+    <fieldset class={classList}>
+      {label !== null && <legend>{label}</legend>}
+      {radios.map((props) => (
+        <Radio
+          name={name}
+          {...props}
+          checkable={checkable || props.checkable}
+        />
+      ))}
+      <slot />
+    </fieldset>
+  ) : (
+    <div class={classList}>
+      {label !== null && <label for={name}>{label}</label>}
+      <div class="radios">
+        {radios.map((props) => (
+          <Radio
+            name={name}
+            {...props}
+            checkable={checkable || props.checkable}
+          />
+        ))}
+      </div>
+
+      <slot />
+    </div>
+  )
+}
+
+<style>
+  div {
+    border: none;
+
+    padding: 0px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  div .radios {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  div:not(.vertical) .radios {
+    flex-direction: row;
+    gap: 12.5px;
+    justify-content: flex-start;
+  }
+
+  div.vertical .radios {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto;
+  }
+
+  .left .radios {
+    justify-content: flex-start !important;
+  }
+
+  label {
+    margin-bottom: -2px;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+  }
+</style>

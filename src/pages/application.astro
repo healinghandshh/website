@@ -1,0 +1,1828 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Radio from "../components/Radio.astro";
+import RadioGroup from "../components/RadioGroup.astro";
+import Input from "../components/Input.astro";
+---
+
+<Layout section="application">
+  <form class="apply">
+    <RadioGroup
+      class="top-level role"
+      name="position"
+      label="Which role are you applying for?"
+      radios={[
+        { id: "rn", text: "Registered Nurse" },
+        { id: "pt", text: "Physical Therapist" },
+        { id: "slp", text: "Speech-Language Pathologist" },
+        { id: "lpnlvn", text: "LPN/LVN" },
+        { id: "pta", text: "PTA" },
+        { id: "hhacna", text: "HHA/CNA" },
+        { id: "ot", text: "Occupational Therapist" },
+        { id: "msw", text: "Medical Social Worker" },
+        { id: "cota", text: "COTA" },
+      ]}
+    >
+      <div class="radio">
+        <div>
+          <label for="admin">Administrator:</label>
+          <input type="text" name="admin_text" />
+        </div>
+        <input type="radio" name="position" id="radio-admin" value="" />
+      </div>
+      <div class="radio">
+        <div>
+          <label for="other_text">Other:</label>
+          <input type="text" name="other_text" id="other_text" />
+        </div>
+        <input type="radio" name="position" id="radio-other" value="" />
+      </div>
+    </RadioGroup>
+
+    <fieldset>
+      <legend>Personal Details</legend>
+      <Input
+        label="Full Name"
+        name="fullName"
+        type="text"
+        placeholder="Johnathan Doevert-Hudson"
+        autocomplete="name"
+      />
+      <Input
+        label="Maiden Name"
+        name="maidenName"
+        type="text"
+        placeholder="Doevert"
+        autocomplete="off"
+      />
+      <Input
+        label="Date of Birth"
+        name="dob"
+        type="date"
+        placeholder="01/01/2001"
+        autocomplete="bday"
+      />
+      <Input
+        label="SSN"
+        name="ssn"
+        type="text"
+        pattern={/^(0|[1-9][0-9]*)$/}
+        placeholder="123 - 21 - 1234"
+      />
+
+      <Input
+        label="Address"
+        name="address"
+        type="text"
+        placeholder="123 Main St"
+        autocomplete="street-address"
+      />
+      <Input
+        label="Apt #"
+        name="apt"
+        type="text"
+        placeholder="123"
+        autocomplete="on"
+        required={false}
+      />
+      <Input
+        label="City"
+        name="city"
+        type="text"
+        placeholder="Atlanta"
+        autocomplete="address-level2"
+      />
+      {
+        /*
+           Change to state dropdown.
+           <Input label='State' name='State' type='text' placeholder='Atlanta' autocomplete='address-level1' />*/
+      }
+      <Input
+        label="Zipcode"
+        name="zipcode"
+        type="text"
+        placeholder="12345"
+        autocomplete="postal-code"
+      />
+      <Input
+        label="Gender"
+        name="gender"
+        type="text"
+        placeholder="..."
+        autocomplete="sex"
+      />
+      <Input
+        label="Email"
+        name="email"
+        type="email"
+        placeholder="jd@gmail.com"
+        autocomplete="email"
+      />
+      <Input
+        label="Phone Number"
+        name="phone"
+        type="tel"
+        placeholder="(123) 210-1234"
+        autocomplete="tel"
+      />
+      <Input
+        label="Emergency Contact"
+        name="emergencycontact"
+        type="text"
+        placeholder="Tim Burland"
+        autocomplete="off"
+        required={false}
+      />
+      <Input
+        label="Emergency Contact Relationship"
+        name="emergencycontactrelationship"
+        type="text"
+        placeholder="Spouse"
+        autocomplete="off"
+        required={false}
+      />
+      <Input
+        label="Emergency Contact Number"
+        name="emergencycontactnumber"
+        type="tel"
+        placeholder="(123) 210-1234"
+        autocomplete="off"
+        required={false}
+      />
+    </fieldset>
+    <fieldset>
+      <legend>Employment Details</legend>
+      <Input
+        type="date"
+        name="startdate"
+        label="Desired Start Date"
+        autocomplete="off"
+        placeholder="01/01/2100"
+      />
+      <Input
+        type="number"
+        name="salary"
+        min="1"
+        step="any"
+        label="Desired Salary"
+        autocomplete="off"
+        placeholder="$50000"
+      />
+      <RadioGroup
+        name="employmentStatus"
+        label="Are you currently employed?"
+        radios={[
+          { id: "yes", text: "Yes" },
+          { id: "no", text: "No" },
+        ]}
+      />
+      <RadioGroup
+        name="employerStatus"
+        label="May we contact your present employer?"
+        radios={[
+          { id: "yes", text: "Yes" },
+          { id: "no", text: "No" },
+        ]}
+      />
+      <Input
+        type="text"
+        name="employerName"
+        label="Name of Current Employer"
+        placeholder="Healthcare Co."
+        autocomplete="off"
+      />
+      <Input
+        type="text"
+        name="licenseNumber"
+        label="Professional License Number"
+        placeholder="123456"
+        autocomplete="off"
+      />
+      <Input
+        type="text"
+        name="stateLicense"
+        label="State License"
+        placeholder="??"
+        autocomplete="off"
+      />
+      <Input
+        type="date"
+        name="licenseExpDate"
+        label="License Exp. Date"
+        placeholder="01/01/3001"
+        autocomplete="off"
+      />
+      <Input
+        type="text"
+        name="degree"
+        label="Degree/Certificate"
+        placeholder="DHA"
+        autocomplete="off"
+      />
+      <RadioGroup
+        name="bilingualStatus"
+        label="Are you bilingual?"
+        radios={[
+          { id: "yes", text: "Yes" },
+          { id: "no", text: "No" },
+        ]}
+      />
+      <Input
+        type="text"
+        name="languagesKnown"
+        label="What languages do you speak?"
+        placeholder="English"
+        autocomplete="off"
+      />
+    </fieldset>
+    <fieldset>
+      <legend>Education</legend>
+      <RadioGroup
+        name="educationLevel"
+        label="Highest Level of Education"
+        class="edLvl"
+        radios={[
+          { id: "highSchool", text: "High School" },
+          { id: "college", text: "College" },
+          { id: "gradSchool", text: "Graduate School" },
+          { id: "certification", text: "Certification" },
+        ]}
+      />
+      <div class="date-group">
+        <label>Dates Attended:</label>
+        <div class="inputs">
+          <Input
+            type="date"
+            name="firstDaySchool"
+            label={null}
+            placeholder="09/01/2004"
+            autocomplete="off"
+          />
+          <Input
+            type="date"
+            name="lastDaySchool"
+            label={null}
+            placeholder="09/01/2008"
+            autocomplete="off"
+          />
+        </div>
+      </div>
+      <Input
+        type="text"
+        name="additionalTraining"
+        label="Additional Training"
+        placeholder="Intensive Care Bootcamp"
+        autocomplete="off"
+      />
+      <Input
+        type="text"
+        name="recentSchool"
+        label="Name of Most Recent School Attended"
+        placeholder="Haryale University"
+        autocomplete="off"
+      />
+      <Input
+        type="text"
+        name="recentSchoolAddress"
+        label="Address"
+        placeholder="123 Haryale Drive"
+        autocomplete="off"
+      />
+    </fieldset>
+    <fieldset class="employment-history">
+      <legend>Employment History</legend>
+      <div class="past-employment">
+        <h4>Employer #1</h4>
+        <Input
+          type="text"
+          name="companyName"
+          label="Company or Client Name"
+          placeholder="Environ Auto"
+          autocomplete="off"
+        />
+        <Input
+          type="text"
+          name="supervisor"
+          label="Supervisor"
+          placeholder="Tim Burton"
+          autocomplete="off"
+        />
+        <Input
+          type="tel"
+          name="supervisorPhone"
+          label="Phone Number"
+          placeholder="(123) 210-1234"
+          autocomplete="tel"
+        />
+        <Input
+          type="text"
+          name="companyAddress"
+          label="address"
+          placeholder="123 Company St, Corpcity MD, 20763"
+          autocomplete="off"
+        />
+        <Input
+          type="tel"
+          name="supervisorFax"
+          label="Fax Number"
+          placeholder="(123) 210-1234"
+          autocomplete="tel"
+          required={false}
+        />
+        <Input
+          type="date"
+          name="startDate"
+          label="Date Started"
+          autocomplete="off"
+        />
+        <Input
+          type="date"
+          name="endDate"
+          label="Date Ended"
+          autocomplete="off"
+        />
+        <Input
+          type="number"
+          name="startingPay"
+          min="1"
+          step="any"
+          label="Starting Pay"
+          autocomplete="off"
+          placeholder="$40000"
+        />
+        <Input
+          type="number"
+          name="endingPay"
+          min="1"
+          step="any"
+          label="Ending Pay"
+          autocomplete="off"
+          placeholder="$50000"
+        />
+        <Input
+          type="text"
+          name="jobPosition"
+          label="Job Position"
+          placeholder="Home Health Aide"
+          autocomplete="off"
+        />
+        <Input
+          type="textarea"
+          name="leavingReason"
+          label="Reason for leaving"
+          autocomplete="off"
+        />
+      </div>
+      <div class="past-employment">
+        <h4>Employer #2</h4>
+        <Input
+          type="text"
+          name="companyName"
+          label="Company or Client Name"
+          placeholder="Environ Auto"
+          autocomplete="off"
+        />
+        <Input
+          type="text"
+          name="supervisor"
+          label="Supervisor"
+          placeholder="Tim Burton"
+          autocomplete="off"
+        />
+        <Input
+          type="tel"
+          name="supervisorPhone"
+          label="Phone Number"
+          placeholder="(123) 210-1234"
+          autocomplete="tel"
+        />
+        <Input
+          type="text"
+          name="companyAddress"
+          label="address"
+          placeholder="123 Company St, Corpcity MD, 20763"
+          autocomplete="off"
+        />
+        <Input
+          type="tel"
+          name="supervisorFax"
+          label="Fax Number"
+          placeholder="(123) 210-1234"
+          autocomplete="tel"
+          required={false}
+        />
+        <Input
+          type="date"
+          name="startDate"
+          label="Date Started"
+          autocomplete="off"
+        />
+        <Input
+          type="date"
+          name="endDate"
+          label="Date Ended"
+          autocomplete="off"
+        />
+        <Input
+          type="number"
+          name="startingPay"
+          min="1"
+          step="any"
+          label="Starting Pay"
+          autocomplete="off"
+          placeholder="$40000"
+        />
+        <Input
+          type="number"
+          name="endingPay"
+          min="1"
+          step="any"
+          label="Ending Pay"
+          autocomplete="off"
+          placeholder="$50000"
+        />
+        <Input
+          type="text"
+          name="jobPosition"
+          label="Job Position"
+          placeholder="Home Health Aide"
+          autocomplete="off"
+        />
+        <Input
+          type="textarea"
+          name="leavingReason"
+          label="Reason for leaving"
+          autocomplete="off"
+        />
+      </div>
+      <div class="past-employment">
+        <h4>Employer #3</h4>
+        <Input
+          type="text"
+          name="companyName"
+          label="Company or Client Name"
+          placeholder="Environ Auto"
+          autocomplete="off"
+        />
+        <Input
+          type="text"
+          name="supervisor"
+          label="Supervisor"
+          placeholder="Tim Burton"
+          autocomplete="off"
+        />
+        <Input
+          type="tel"
+          name="supervisorPhone"
+          label="Phone Number"
+          placeholder="(123) 210-1234"
+          autocomplete="tel"
+        />
+        <Input
+          type="text"
+          name="companyAddress"
+          label="address"
+          placeholder="123 Company St, Corpcity MD, 20763"
+          autocomplete="off"
+        />
+        <Input
+          type="tel"
+          name="supervisorFax"
+          label="Fax Number"
+          placeholder="(123) 210-1234"
+          autocomplete="tel"
+          required={false}
+        />
+        <Input
+          type="date"
+          name="startDate"
+          label="Date Started"
+          autocomplete="off"
+        />
+        <Input
+          type="date"
+          name="endDate"
+          label="Date Ended"
+          autocomplete="off"
+        />
+        <Input
+          type="number"
+          name="startingPay"
+          min="1"
+          step="any"
+          label="Starting Pay"
+          autocomplete="off"
+          placeholder="$40000"
+        />
+        <Input
+          type="number"
+          name="endingPay"
+          min="1"
+          step="any"
+          label="Ending Pay"
+          autocomplete="off"
+          placeholder="$50000"
+        />
+        <Input
+          type="text"
+          name="jobPosition"
+          label="Job Position"
+          placeholder="Home Health Aide"
+          autocomplete="off"
+        />
+        <Input
+          type="textarea"
+          name="leavingReason"
+          label="Reason for leaving"
+          autocomplete="off"
+        />
+      </div>
+    </fieldset>
+    <fieldset class="reference-letter">
+      <legend> Reference Letter</legend>
+      <p>
+        The undersigned, having applied for a position with our organization,
+        herby authorizes you to release any information to and do hereby
+        unconditionally release your organization from all liability for damage
+        whatsoever that might result from furnishing this information.
+      </p>
+      <strong>SECTION I: Applicant to complete.</strong>
+      <div class="fieldset">
+        <Input
+          type="text"
+          name="referencedCompanyName"
+          label="Company Name"
+          placeholder="Brussels. CO"
+          autocomplete="off"
+        />
+        <Input
+          type="text"
+          name="referencedSupervisorName"
+          label="Supervisor Name"
+          placeholder="Mel Gibson"
+          autocomplete="off"
+        />
+        <Input
+          type="text"
+          name="referencedPositionTitle"
+          label="Position Title"
+          placeholder="Administrative Management"
+          autocomplete="off"
+        />
+        <Input
+          type="tel"
+          name="referencedSupervisorFaxNumber"
+          label="Supervisor Fax Number"
+          placeholder="(123) 210-1234"
+          autocomplete="tel"
+          required={false}
+        />
+        <div class="date-group">
+          <label for="startDate">Dates Employed</label>
+          <div class="inputs">
+            <Input
+              type="date"
+              name="referencedStartDate"
+              label={null}
+              autocomplete="off"
+            />
+            <Input
+              type="date"
+              name="referencedEndDate"
+              label={null}
+              autocomplete="off"
+            />
+          </div>
+        </div>
+        <div>
+          <div class="p-w-input">
+            <p>I acknowledge filing an application with</p><Input
+              type="text"
+              name="referenceAcknowledgement"
+              label={null}
+              autocomplete="off"
+              className="inline-input"
+            />
+            <p>and authorize release of information from my former employer.</p>
+          </div>
+          <div class="signature">
+            <Radio
+              name="signature"
+              text="By checking this box you acknowledge it as a legally binding signature."
+              id="applicantSignature"
+              checkable
+              required
+            />
+            <Input
+              type="date"
+              name="referenceDateSigned"
+              label="Date Signed"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+      </div>
+      <fieldset>
+        <legend>Sworn Disclosure Statement</legend>
+        <p>
+          To the Applicant:
+          <br /><br />
+          Sections 32.1-162.9; 32.1-126.01 of the Code of Maryland require that any
+          person desiring work at a licensed Staffing organization or nursing home
+          provide the hiring facility with a sworn disclosure or affirmation disclosing
+          any criminal convictions or pending criminal charges, whether within or
+          outside the Commonwealth of Virginia. The laws prohibits licensed homes
+          for adults and licensed health care organizations and licensed nursing
+          homes from hiring any individuals convicted of the following: murder, abduction
+          or immoral purposes, assaults and bodily wounding, robbery, sexual assault,
+          arson, pandering, crimes against nature involving children, taking indecent
+          liberties with children, abuse and neglect of children, failure to secure
+          medical attention for an injured child, obscenity offenses or abuse or
+          neglect of an incapacitated adult. However, applicants convicted of one
+          (1) misdemeanor crime not involving abuse or neglect or moral turpitude
+          may be hired provided five (5) years has clasped since the conviction.
+          Any person making a false statement on this form regarding any criminal
+          offense shall be guilty upon conviction of a Class 1 misdemeanor. Further
+          dissemination of the information provided on this form is prohibited other
+          than a federal or state authority or court as may be required to comply
+          with an express requirement of law for such further dissemination.
+        </p>
+        <Input
+          type="text"
+          name="swdName"
+          label="Full Name"
+          autocomplete="name"
+          placeholder="Josephine Bonap-Rose"
+        />
+        <Input
+          type="text"
+          name="swdMaidenName"
+          label="Maiden Name"
+          autocomplete="name"
+          placeholder="Rose"
+        />
+        <Input
+          label="SSN"
+          name="swdssn"
+          type="text"
+          pattern={/^(0|[1-9][0-9]*)$/}
+          placeholder="123 - 21 - 1234"
+        />
+        <Input
+          label="Address"
+          name="swdaddress"
+          type="text"
+          placeholder="123 Main St"
+          autocomplete="street-address"
+        />
+        <Input
+          label="Apt #"
+          name="swdapt"
+          type="text"
+          placeholder="123"
+          autocomplete="on"
+          required={false}
+        />
+        <Input
+          label="City"
+          name="swdcity"
+          type="text"
+          placeholder="Atlanta"
+          autocomplete="address-level2"
+        />
+        {
+          /*
+         Change to state dropdown.
+         <Input label='State' name='State' type='text' placeholder='Atlanta' autocomplete='address-level1' />*/
+        }
+        <Input
+          label="Zipcode"
+          name="swdzipcode"
+          type="text"
+          placeholder="12345"
+          autocomplete="postal-code"
+        />
+        <ol class="input-list">
+          <li class="list-input">
+            <div class="select">
+              <p>
+                Have you ever been convicted of a law violation(s) but excluding
+                offenses committed before your eighteenth birthday which were
+                finally adjudicated in a juvenile court or under a youth
+                offender law?
+              </p>
+              <div class="divider"></div>
+              <RadioGroup
+                name="swdQone"
+                label={null}
+                radios={[
+                  { id: "yes", text: "Yes" },
+                  { id: "no", text: "No" },
+                ]}
+                class="options"
+                vertical
+              />
+            </div>
+
+            <Input
+              label="If yes, list all and explain"
+              name="swdQoneDesc"
+              type="textarea"
+            />
+          </li>
+          <li class="list-input">
+            <div class="select">
+              <p>Are you the subject of any pending criminal charges?</p>
+              <div class="divider"></div>
+              <RadioGroup
+                name="swdQtwo"
+                label={null}
+                radios={[
+                  { id: "yes", text: "Yes" },
+                  { id: "no", text: "No" },
+                ]}
+                vertical
+              />
+            </div>
+
+            <Input
+              label="If yes, list all and explain"
+              name="swdQtwoDesc"
+              type="textarea"
+            />
+          </li>
+          <li class="p-w-input">
+            I hereby affirm that the information provided on this form is true
+            and correct, and I agree and understand that any falsification of
+            information herein, regardless of time of discovery, may cause
+            forfeiture on my part to any employment offered by this facility. I
+            understand that all information on this form is subject to
+            verification. I authorize: <Input
+              type="text"
+              name="swdQthree"
+              label={null}
+              autocomplete="off"
+              className="inline-input"
+            /> to make an investigation to verify this information.
+          </li>
+        </ol>
+        <div class="signature">
+          <Radio
+            name="swdsignature"
+            text="By checking this box you acknowledge it as a legally binding signature."
+            id="applicantSignature"
+            checkable
+            required
+          />
+          <Input
+            type="date"
+            name="swdDateSigned"
+            label="Date Signed"
+            autocomplete="off"
+          />
+        </div>
+      </fieldset>
+      <fieldset class="availability-form">
+        <legend>Availability Form</legend>
+        <RadioGroup
+          name="availabilityType"
+          label="Are you interested in:"
+          radios={[
+            { id: "fullTime", text: "Full time" },
+            { id: "partTime", text: "Part time:" },
+            { id: "prn", text: "PRN" },
+          ]}
+          checkable
+          class="radio-group-left"
+        />
+        <RadioGroup
+          name="availabilityDays"
+          label="What days are you available?"
+          radios={[
+            { id: "mon", text: "Mon." },
+            { id: "tue", text: "Tue." },
+            { id: "wed", text: "Wed." },
+            { id: "thu", text: "Thu." },
+            { id: "fri", text: "Fri." },
+            { id: "sat", text: "Sat." },
+            { id: "sun", text: "Sun." },
+          ]}
+          checkable
+          class="radio-group-left"
+        />
+        <div>
+          <p>What times are you available? (Please specify if AM or PM)</p>
+          <div class="availability-hours">
+            <Input
+              type="text"
+              label="Sunday"
+              name="availabilityHoursSun"
+              required={false}
+              autocomplete="on"
+              placeholder="9AM - 5PM"
+            />
+            <Input
+              type="text"
+              label="Monday"
+              name="availabilityHoursMon"
+              required={false}
+              autocomplete="on"
+              placeholder="9AM - 5PM"
+            />
+            <Input
+              type="text"
+              label="Tueday"
+              name="availabilityHoursTue"
+              required={false}
+              autocomplete="on"
+              placeholder="9AM - 5PM"
+            />
+            <Input
+              type="text"
+              label="Wednesday"
+              name="availabilityHoursWed"
+              required={false}
+              autocomplete="on"
+              placeholder="9AM - 5PM"
+            />
+            <Input
+              type="text"
+              label="Thursday"
+              name="availabilityHoursThu"
+              required={false}
+              autocomplete="on"
+              placeholder="9AM - 5PM"
+            />
+            <Input
+              type="text"
+              label="Friday"
+              name="availabilityHoursFri"
+              required={false}
+              autocomplete="on"
+              placeholder="9AM - 5PM"
+            />
+            <Input
+              type="text"
+              label="Saturday"
+              name="availabilityHoursSat"
+              required={false}
+              autocomplete="on"
+              placeholder="9AM - 5PM"
+            />
+          </div>
+        </div>
+        <Input
+          type="textarea"
+          label="What areas are you willing to cover?"
+          name="availabilityAreas"
+        />
+      </fieldset>
+      <fieldset class="evf">
+        <legend>Employee Verification Requirements</legend>
+        <h3>Paperwork List Requirements</h3>
+        <p>
+          A copy of the following documents should be <a href=""
+            >sent with your application</a
+          >. All forms must be signed and dated. <br />
+          <strong>Documents required:</strong>
+        </p>
+        <ol>
+          <li>Proof of active professional license from verification site</li>
+          <li>CPR</li>
+          <li>Car Insurance</li>
+          <li>Social Security</li>
+          <li>Driver's License</li>
+          <li>
+            Passport or naturalization certification or green card/work permit
+          </li>
+          <li>TB Test or chest X-Ray certification</li>
+        </ol>
+        <Radio
+          id="sent-forms"
+          name="sent-forms"
+          text="Please check this box once you have sent these forms in (or if you plan to email them to email@gmail.com, and understand that these forms are neccesary for your application to be considered)."
+          checkable
+        />
+      </fieldset>
+      <fieldset>
+        <legend>Employee Health Self-Assessment</legend>
+        <Input
+          type="text"
+          name="ehsName"
+          label="Name"
+          autocomplete="name"
+          placeholder="Tim Buglon"
+        />
+        <Input
+          type="number"
+          name="ehsAge"
+          label="Age"
+          autocomplete="off"
+          placeholder="29"
+        />
+        <Input
+          type="text"
+          name="ehsSex"
+          label="Sex"
+          autocomplete="sex"
+          placeholder="M"
+        />
+        <Input
+          type="text"
+          name="ehsPosApplied"
+          label="Position Applied For"
+          autocomplete="off"
+          placeholder="CNA"
+        />
+        <Input type="date" name="ehsDate" label="date" autocomplete="off" />
+        <Input
+          type="text"
+          name="ehsPhysician"
+          label="Physician"
+          autocomplete="off"
+          placeholder="Dr. M. White"
+        />
+        <Input
+          type="tel"
+          name="ehsPhysicianPhone"
+          label="Physician Phone"
+          autocomplete="tel"
+          placeholder="(123) 210-1234"
+        />
+        <Input
+          type="text"
+          name="ehsAllergies"
+          label="Allergies"
+          autocomplete="off"
+          placeholder="Peanuts, tree nuts"
+        />
+        <fieldset>
+          <legend>Have you had or do you have any of the following?</legend>
+          <div class="hsa-maladies">
+            <RadioGroup
+              label="Fainting Spells"
+              name="faintingSpells"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <RadioGroup
+              label="Hypertension"
+              name="hypertension"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <RadioGroup
+              label="Diabetes"
+              name="diabetes"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <RadioGroup
+              label="Asthma"
+              name="asthma"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <RadioGroup
+              label="Back Injuries"
+              name="backInjuries"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <RadioGroup
+              label="Jaundice"
+              name="jaundice"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <RadioGroup
+              label="Nervous Breakdown"
+              name="nervousBreakdown"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <RadioGroup
+              label="Malaria"
+              name="malaria"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <RadioGroup
+              label="Arthritis"
+              name="Arthritis"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <RadioGroup
+              label="Hernia (Rupture)"
+              name="hernia"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <RadioGroup
+              label="Tuberculosis"
+              name="tuberculosis"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              class="radio-group-left"
+            />
+            <Input type="text" name="other" label="Other" autocomplete="off" />
+          </div>
+          <div>
+            <RadioGroup
+              label="Have you ever worn a back brace?"
+              name="backBrace"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              radioAlign="left"
+            />
+            <RadioGroup
+              label="Have you ever received Worker's Compensation?"
+              name="workersComp"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              radioAlign="left"
+            />
+            <RadioGroup
+              label="Have you ever been refused insurance for health reasons?"
+              name="insuranceRefusal"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              radioAlign="left"
+            />
+            <RadioGroup
+              label="Do you take medicine regularly?"
+              name="medicineIntake"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              radioAlign="left"
+            />
+            <RadioGroup
+              label={"Have you ever been a patient in a hospital or institution during the last three years?"}
+              name="recentlyInstitutionalized"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              radioAlign="left"
+            />
+            <RadioGroup
+              label="Have you ever received pension or disability insurance?"
+              name="receivedPension"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              radioAlign="left"
+            />
+            <RadioGroup
+              label="Have you ever been refused employment for health?"
+              name="refusedEmployment"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              radioAlign="left"
+            />
+            <RadioGroup
+              label="Do you have any defect, deformity, or disease that may interfere with your work?"
+              name="interferingDiseases"
+              radios={[
+                { id: "yes", text: "Yes" },
+                { id: "no", text: "No" },
+              ]}
+              radioAlign="left"
+            />
+          </div>
+        </fieldset>
+        <div class="health-check">
+          <p>To the best of my knowledge and belief</p>
+          <Radio
+            text="I am in good physical health."
+            name="physicalHealth"
+            id="physicalHealth"
+            checkable
+          />
+          <Radio
+            text="I am free from any communicable disease."
+            name="infectious"
+            id="infectious"
+            checkable
+          />
+          <Radio
+            text="I am free from any physical or mental condition that would prevent me from fully performing my job duties as outlined in my job description"
+            name="conditionFree"
+            id="conditionFree"
+            checkable
+          />
+        </div>
+
+        <p>
+          I, <Input
+            type="text"
+            name="name"
+            label={null}
+            placeholder="Tim Boglon"
+            autocomplete="name"
+          />, the undersigned certify the above answers are true, and give the
+          examining Physician permission to submit a report to <Input
+            type="text"
+            name="company"
+            label={null}
+            placeholder="Healing Hands Healing Hearts L.L.C."
+            autocomplete="off"
+          />
+        </p>
+        <div class="signature">
+          <Radio
+            name="ehsSignature"
+            text="By checking this box you acknowledge it as a legally binding signature."
+            id="applicantSignature"
+            checkable
+            required
+          />
+          <Input
+            type="date"
+            name="ehsDateSigned"
+            label="Date Signed"
+            autocomplete="off"
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Hepatitis B Vaccine Notification</legend>
+        <p>
+          I understand that due to my occupational exposure to blood or other
+          potentially infectious materials that it is strongly suggested that I
+          am vaccinated for the Hepatitis B Virus (HBV). I understand that I may
+          refuse the vaccination. I also understand that not being vaccinated
+          may leave me susceptible to the HBV.
+        </p>
+        <Input
+          type="text"
+          name="hbvExplainer"
+          label={null}
+          style="margin-bottom:-10px;flex-grow:0;"
+          placeholder="Healing hands healing hearts LLC"
+        />
+        <p>
+          has explained to me that I continue to be at risk for HBV until such
+          time that I am immunized, and that if I wish to be immunized I need to
+          see my physician for the series of shots.
+        </p>
+        <Radio
+          text="I wish to be immunized- I will make arrangements with my physician for the series of shots."
+          name="immunizationWish"
+          id="immunizationWish"
+          checkable
+        />
+        <Radio
+          text="I have already had the HBV vaccination"
+          name="immunized"
+          id="immunized"
+          checkable
+        />
+        <Radio
+          text="I understand that risk and am not interested in being vaccinated"
+          name="notInterested"
+          id="notIntersted"
+          checkable
+        />
+        <Input
+          label="Print Name"
+          name="printName"
+          type="text"
+          placeholder="Johnathan Doevert-Hudson"
+          autocomplete="name"
+        />
+        <div class="signature">
+          <Radio
+            name="signature"
+            text="By checking this box you acknowledge it as a legally binding signature."
+            id="hbvSignature"
+            checkable
+            required
+          />
+          <Input
+            type="date"
+            name="hbvDateSigned"
+            label="Date Signed"
+            autocomplete="off"
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Declination of Mantoux</legend>
+        <p>
+          I, <Input type="text" name="mtoName" label={null} />, have submitted
+          documentation of PPD test results of said test.
+        </p>
+        <p>
+          If an employee has a known history of having had a positive Tuberculin
+          test by Mantoux method, he/she may decline the Mantoux test. He/ she
+          must agree to give the Agency documentation of the negative chest
+          X-Ray within the past twelve months.
+        </p>
+        <Input
+          label="Print Name"
+          name="printName"
+          type="text"
+          placeholder="Johnathan Doevert-Hudson"
+          autocomplete="name"
+        />
+        <div class="signature">
+          <Radio
+            name="signature"
+            text="By checking this box you acknowledge it as a legally binding signature."
+            id="mtoSignature"
+            checkable
+            required
+          />
+          <Input
+            type="date"
+            name="mtoDateSigned"
+            label="Date Signed"
+            autocomplete="off"
+          />
+        </div>
+      </fieldset>
+      <fieldset>
+        <legend>Confidentiality Agreement</legend>
+        <p>
+          Any information exchanged about <Input
+            type="text"
+            label={null}
+            name="confFieldOne"
+          /> either written or verbal, is to be kept confidential by all <Input
+            type="text"
+            label={null}
+            name="confFieldTwo"
+          />
+          employees and contracted staff. This applies but is not limited to contract,
+          proposals, regulatory information, forms, paperwork, correspondence, and
+          proceedings of meetings.
+        </p>
+        <p>
+          <strong
+            >Any employee who does not comply with this policy will be
+            terminated immediately.</strong
+          ><br />
+          Upon hire all employees are required to sign a Confidentiality Statement
+          as follows:
+        </p>
+        <p>
+          I, <Input type="text" label={null} name="confFieldThree" />, hereby
+          agree to treat and keep all personal medical information on
+          <Input type="text" label={null} name="confFieldFour" /> services and or
+          its patients and or clients confidential. Furthermore, I will agree not
+          to release any information to any outside organization or agency without
+          the approval of the patient and or client, or as required by law or third-party
+          payment contract. Any employee that does not comply with this policy will
+          be terminated immediately.
+        </p>
+        <Input
+          label="Print Name"
+          name="printName"
+          type="text"
+          placeholder="Johnathan Doevert-Hudson"
+          autocomplete="name"
+        />
+        <div class="signature">
+          <Radio
+            name="signature"
+            text="By checking this box you acknowledge it as a legally binding signature."
+            id="confSignature"
+            checkable
+            required
+          />
+          <Input
+            type="date"
+            name="confDateSigned"
+            label="Date Signed"
+            autocomplete="off"
+          />
+        </div>
+      </fieldset>
+      <fieldset class="ackpp">
+        <legend>Acknowledgment of Policies and Procedures</legend>
+        <p>
+          <strong
+            >I acknowledge that I have received, read and understand the
+            following policies and procedures and documents for <Input
+              type="text"
+              label={null}
+              name="aoppOne"
+            />.</strong
+          >
+        </p>
+        <ul>
+          <li>
+            Criminal Records-Employment Barrier of Crimes stating which criminal
+            convictions for offenses involving abuse or neglect may disqualify
+            me from employment with Prospect Staffing.
+          </li>
+          <li>
+            HIPPA Policy and procedure regarding the privacy of individually
+            identifiable protected health information (PHI), as mandated by the
+            Health Insurance Portability and Accountability Act of 1996 (HIPAA)
+            and the state of Virginia.
+          </li>
+          <li>
+            Sexual Abuse Policy and Procedure<ul>
+              <li>
+                I understand that <Input
+                  type="text"
+                  label={null}
+                  name="aoppCompanyName"
+                  placeholder="Healing Hands Healing Hearts L.L.C."
+                /> will not tolerate any employee, volunteer, board member or third
+                party who commits sexual abuse. Disciplinary actions will be taken
+                against those who are found to have committed sexual abuse.
+              </li>
+              <li>
+                I understand that it is my responsibility to abide by all rules
+                contained in the policy. I also understand how to report
+                incidents of sexual abuse as set forth in the abuse policy,
+                including retaliating against any employee/volunteer exercising
+                his or her rights under the policy
+              </li>
+            </ul>
+          </li>
+          <li>
+            Documentation (paper or electronic) is required to be submitted from
+            the current week by Friday no later than 5:00 PM.
+          </li>
+          <li>
+            Universal Precautions OSHA Blood borne Pathogens Policy and
+            procedure stating you understand you are at risk of exposure to
+            blood or other potentially infectious materials; therefore, have
+            been given proper instruction on OSHA Regulation and Requirements
+          </li>
+          <li>Rules governing employees' visits in a client' s home.</li>
+          <li>
+            Inservice requirements stating each employee or independent
+            contractor needs to complete a minimum of twelve (12) in-service
+            hours per year
+          </li>
+          <li>
+            HIV Confidentiality stating you have received training in the
+            regulations concerning HIV confidentiality
+          </li>
+          <li>
+            tatement of nonhabituation stating that you are not using or
+            habituated of addicted to depressants, stimulants, narcotic, alcohol
+            or other drugs and is fully able to perform the duties of your field
+            you are employed in.
+          </li>
+        </ul>
+        <Input
+          label="Employee Name (Please Print)"
+          name="employeePrintName"
+          type="text"
+          placeholder="Johnathan Doevert-Hudson"
+          autocomplete="name"
+        />
+        <div>
+          <div class="signature">
+            <Radio
+              name="signature"
+              text="EMPLOYEE: By checking this box you acknowledge it as a legally binding signature."
+              id="aoppEmployeeSignature"
+              checkable
+              required
+            />
+            <Input
+              type="date"
+              name="aoppEmployeeDateSigned"
+              label="Date Signed"
+              autocomplete="off"
+            />
+          </div>
+
+          <Input
+            label="Employee Name (Please Print)"
+            name="witnessPrintName"
+            type="text"
+            placeholder="Johnathan Doevert-Hudson"
+            autocomplete="name"
+          />
+          <div class="signature">
+            <Radio
+              name="signature"
+              text="WITNESS: By checking this box you acknowledge it as a legally binding signature."
+              id="aoppWitnessSignature"
+              checkable
+              required
+            />
+            <Input
+              type="date"
+              name="aoppDateSigned"
+              label="Date Signed"
+              autocomplete="off"
+            />
+          </div>
+        </div>
+      </fieldset>
+    </fieldset>
+    <input type="submit" class="submit-button" />
+  </form>
+  <style>
+    .submit-button {
+      cursor: pointer;
+
+      font-weight: 700;
+
+      background: var(--secondary-color);
+
+      transition: background 100ms linear, box-shadow 100ms linear;
+    }
+
+    .submit-button:hover {
+      background: hsl(117, 63%, 40%);
+
+      box-shadow: 1px 1px black;
+    }
+
+    :root {
+      --input-gap: 20px;
+    }
+
+    .apply {
+      width: 50%;
+
+      padding: 10px;
+      margin: 10px auto 10px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 15px;
+
+      background: white;
+      box-shadow: 5px -5px var(--secondary-color),
+        5px 5px var(--secondary-color);
+    }
+
+    @media only screen and (max-width: 768px) {
+      .apply {
+        width: 100%;
+      }
+    }
+
+    .radio {
+      width: fit-content;
+
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 5px;
+    }
+
+    fieldset {
+      padding: 15px;
+    }
+
+    fieldset,
+    .fieldset {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--input-gap);
+      row-gap: 25px;
+    }
+
+    legend {
+      margin: auto;
+
+      width: 100%;
+
+      padding: 0px 10px;
+
+      background: lightgray;
+
+      border: 2px solid black;
+    }
+
+    label {
+      margin-bottom: -2px;
+
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .p-w-input {
+      width: 100%;
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .p-w-input p {
+      width: fit-content;
+    }
+
+    .inline-input {
+      flex-grow: 0;
+
+      width: 100%;
+    }
+
+    .input-row {
+      display: flex;
+      flex-direction: row;
+      gap: 15px;
+    }
+
+    fieldset.role {
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 25px;
+      row-gap: 5px;
+      align-content: space-between;
+      align-items: flex-start;
+
+      padding: 25px 50px 0px;
+
+      max-height: 175px;
+      height: fit-content;
+    }
+
+    .signature {
+      display: flex;
+
+      align-items: flex-end;
+      justify-content: space-evenly;
+      gap: 20px;
+
+      width: 100%;
+
+      margin-top: 10px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .signature {
+        flex-direction: column;
+
+        gap: 10px;
+      }
+    }
+
+    /**
+  Employment history section */
+    .employment-history {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: unset;
+
+      gap: 20px;
+      row-gap: 20px;
+    }
+
+    .past-employment {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      gap: var(--input-gap);
+    }
+
+    .past-employment:not(:last-child) {
+      padding-bottom: 20px;
+      border-bottom: 1px solid black;
+    }
+
+    .past-employment h4 {
+      width: 100%;
+
+      text-align: left;
+
+      margin-bottom: -15px;
+    }
+
+    /** Education Section */
+
+    .date-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .date-group .inputs {
+      display: flex;
+      gap: 10px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .date-group {
+        width: 100%;
+      }
+
+      .date-group .inputs {
+        flex-direction: column;
+
+        width: 100%;
+      }
+    }
+
+    /** Reference Letter Section */
+
+    .reference-letter {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-list {
+      display: flex;
+      flex-direction: column;
+
+      gap: 15px;
+    }
+
+    .list-input {
+      display: flex;
+      flex-direction: column;
+
+      gap: 15px;
+    }
+
+    .list-input:not(:last-child) {
+      padding-bottom: 15px;
+      border-bottom: 1px solid black;
+    }
+
+    .list-input .select {
+      display: flex;
+
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+
+      padding-right: 15px;
+    }
+
+    .list-input .select .divider {
+      display: flex;
+
+      flex-grow: 1;
+      flex-shrink: 1;
+
+      width: 125px;
+      height: 2px;
+
+      border-radius: 50%;
+
+      background-color: black;
+    }
+
+    .list-input .select p {
+      width: clamp(50%, 50%, max-content);
+      text-align: center;
+
+      display: inline-block;
+
+      hyphens: auto;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .list-input .select {
+        width: 100%;
+
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+      }
+
+      .list-input .select .divider {
+        display: none;
+      }
+
+      .list-input .select p {
+        width: 100%;
+
+        text-align: left;
+      }
+    }
+    /** Availability Form */
+
+    .availability-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--input-gap);
+    }
+
+    .availability-hours {
+      width: 100%;
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--input-gap);
+    }
+
+    .radio-group-left {
+      align-items: flex-start;
+
+      width: fit-content;
+    }
+
+    .evf {
+      display: flex;
+      flex-direction: column;
+      gap: var(--input-gap);
+      align-items: flex-start;
+    }
+
+    .hsa-maladies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--input-gap);
+
+      width: 100%;
+      max-width: 100%;
+
+      justify-content: flex-start;
+      align-items: space-evenly;
+    }
+
+    .evf ol {
+      display: inline-flex;
+      flex-direction: column;
+      padding-left: 10px;
+    }
+
+    .evf ol li::marker {
+      font-weight: 700;
+    }
+
+    #sent-forms {
+      align-items: start;
+    }
+
+    .health-check {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /** Acknowledgement of policies and procedures */
+
+    .ackpp ul li {
+      margin-left: 15px;
+    }
+
+    /** Responsive */
+
+    @media only screen and (max-width: 1750px) {
+      fieldset.role {
+        max-height: fit-content;
+        padding-bottom: 25px;
+      }
+
+      fieldset {
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+</Layout>

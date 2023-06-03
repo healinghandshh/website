@@ -1,6 +1,7 @@
 import { APIRoute } from "astro";
 import client from "@sendgrid/mail";
-client.setApiKey(process.env.SENDGRID_API_KEY as any);
+import { error } from "astro/dist/core/logger/core";
+client.setApiKey(process.env.SENDGRID_API_KEY as string);
 
 export const get: APIRoute = ({ request }) => {
   return new Response("HI", { status: 200 });
@@ -24,7 +25,7 @@ export const post: APIRoute = ({ request }) => {
     client.send(mail);
     return new Response(JSON.stringify("success"), { status: 200 });
   } catch (e) {
-    alert(e);
+    console.error(e);
     return new Response(JSON.stringify("error"), { status: 500 });
   }
 };

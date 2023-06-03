@@ -1,0 +1,47 @@
+---
+export interface Props {
+  name: string;
+  text: string;
+  id: string;
+  value?: string;
+  checkable?: boolean;
+  required?: boolean;
+}
+
+const { name, text, id, value, checkable, required } = Astro.props;
+
+const randomId = (() => {
+  const a = Math.random() * 25 * (Math.random() * 792 * (Math.random() * 294));
+  const b = Math.random() * 25 * (Math.random() * 792 * (Math.random() * 294));
+
+  return (a / b).toString();
+})();
+---
+
+<div class={`radio ${checkable ? "checkbox" : ""}`}>
+  <label for={`radio-${id}-${randomId}`}>{text}</label>
+  <input
+    type={!checkable ? "radio" : "checkbox"}
+    name={name}
+    id={`radio-${id}-${randomId}`}
+    value={value || name}
+    required={checkable ? (!required ? false : true) : !required ? false : true}
+  />
+</div>
+<style>
+  .radio {
+    width: fit-content;
+
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 5px;
+  }
+
+  .checkbox label {
+    line-height: 1rem;
+  }
+
+  .checkbox {
+    align-items: flex-start;
+  }
+</style>
