@@ -13,9 +13,11 @@ export interface Props {
   checkable?: boolean;
   vertical?: boolean;
   radioAlign?: "left";
+  id?: string;
 }
 
-const { radios, name, label, checkable, vertical, radioAlign } = Astro.props;
+const { radios, name, label, checkable, vertical, radioAlign, id } =
+  Astro.props;
 
 const classList =
   Astro.props.class +
@@ -29,13 +31,14 @@ const classList =
 
 {
   classList.includes("top-level") ? (
-    <fieldset class={classList}>
+    <fieldset class={classList} id={id || ""}>
       {label !== null && <legend>{label}</legend>}
       {radios.map((props) => (
         <Radio
           name={name}
           {...props}
           checkable={checkable || props.checkable}
+          value={props.value || props.id}
         />
       ))}
       <slot />
@@ -49,6 +52,7 @@ const classList =
             name={name}
             {...props}
             checkable={checkable || props.checkable}
+            value={props.value || props.id}
           />
         ))}
       </div>
@@ -90,6 +94,10 @@ const classList =
 
   .left .radios {
     justify-content: flex-start !important;
+  }
+
+  .vertical.left .radios {
+    align-items: flex-start;
   }
 
   label {

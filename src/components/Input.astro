@@ -86,7 +86,7 @@ const getSize = () => {
         autocomplete={autocomplete}
         enterkeyhint={enterKeyHint}
         pattern={pattern}
-        required={required || true}
+        required={typeof required !== "undefined" ? required : true}
         {...props}
       />
     ) : (
@@ -97,7 +97,7 @@ const getSize = () => {
         autocomplete={autocomplete}
         enterkeyhint={enterKeyHint}
         pattern={pattern}
-        required={required || true}
+        required={typeof required !== "undefined" ? required : true}
         {...props}
       />
     )

@@ -1050,6 +1050,7 @@ switch images to material icons or use canva to make circle icons for each: expe
   height: fit-content;
 }
 
-#application-main {
+#application-main,
+#submitted-main {
   background: var(--main-color);
 }

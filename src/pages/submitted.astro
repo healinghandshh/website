@@ -1,0 +1,38 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout section="submitted">
+    <div class="message-container">
+        <h2 style="font-size:4rem;padding:0px;margin:0px;">
+            Application Submitted
+        </h2>
+        <p style="max-width: 80%;">
+            Your application has been submitted and we will get back to you as
+            soon as possible. Please be patient. Thank you for choosing Healing
+            Hands Healing Hearts, and we look forward to working with you.
+        </p>
+    </div>
+</Layout>
+<style>
+    .message-container {
+        width: 50%;
+
+        padding: 10px;
+        margin: 10px auto 10px;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: white;
+        box-shadow: 5px -5px var(--secondary-color),
+            5px 5px var(--secondary-color);
+    }
+
+    @media only screen and (max-width: 768px) {
+        .message-container {
+            width: 100%;
+        }
+    }
+</style>

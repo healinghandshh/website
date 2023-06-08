@@ -19,6 +19,7 @@
     "astro": "^2.4.5",
     "astro-compress": "^1.1.42",
     "astro-imagetools": "^0.8.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "jspdf": "^2.5.1"
   }
 }

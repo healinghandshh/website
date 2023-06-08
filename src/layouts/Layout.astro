@@ -9,7 +9,8 @@ export interface Props {
     | "resources"
     | "contact"
     | "home"
-    | "application";
+    | "application"
+    | "submitted";
 }
 
 const { section } = Astro.props;
@@ -20,6 +21,7 @@ const title = (() => {
   if (section === "resources") return "Resources";
   if (section === "contact") return "Contact us";
   if (section === "application") return "Work with us";
+  if (section === "submitted") return "Application Submitted";
 })();
 ---
 
