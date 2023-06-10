@@ -269,7 +269,7 @@ export async function post({ request, redirect }) {
   };
 
   const mail = {
-    to: "hhealing14@gmail.com",
+    to: "Msawadogo.healinghandsllc@gmail.com",
     from: "hhealing14@gmail.com",
     subject: "New Application Submitted",
     html: getEmailHTMLString(),

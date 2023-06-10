@@ -15,7 +15,7 @@ export const post: APIRoute = ({ request }) => {
   const message = params.get("message");
   const subject = params.get("subject");
   const mail = {
-    to: "hhealing14@gmail.com",
+    to: "Msawadogo.healinghandsllc@gmail.com",
     from: "hhealing14@gmail.com",
     templateId: "d-6c77a401df934180b44b48dbaa0d32e3",
     dynamicTemplateData: { firstName, lastName, email, message, subject },
