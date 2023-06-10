@@ -10,10 +10,12 @@ export interface Props {
     | "contact"
     | "home"
     | "application"
-    | "submitted";
+    | "submitted"
+    | string;
+  alt?: boolean;
 }
 
-const { section } = Astro.props;
+const { section, alt } = Astro.props;
 const title = (() => {
   if (section === "home") return "Home";
   if (section === "about") return "About us";
@@ -22,6 +24,7 @@ const title = (() => {
   if (section === "contact") return "Contact us";
   if (section === "application") return "Work with us";
   if (section === "submitted") return "Application Submitted";
+  return section;
 })();
 ---
 
@@ -70,6 +73,8 @@ const title = (() => {
         ? "main-grid"
         : section === "service"
         ? "services"
+        : alt
+        ? "services-main"
         : `${section}-main`}
     >
       <slot />

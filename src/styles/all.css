@@ -330,7 +330,8 @@ banner h1 {
   height: 150px;
 }
 
-#text2 p a button {
+#text2 p a button,
+#text4 p a button {
   width: 200px;
   height: 50px;
   font-size: 1.25rem;
@@ -341,6 +342,7 @@ banner h1 {
   margin: 0 auto;
   color: var(--main-color);
 }
+
 
 /* about.html */
 
